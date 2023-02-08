@@ -11,7 +11,7 @@ public class TargetGrade {
     private double examWeighting;
 
     // EFFECTS: gathering essential information to calculate a target grade
-    public TargetGrade(double current, double grade, double weighting){
+    public TargetGrade(double current, double grade, double weighting) {
         this.currentGrade = current;
         this.targetGrade = grade;
         this.examWeighting = weighting;
@@ -21,9 +21,11 @@ public class TargetGrade {
     public double getCurrentGrade() {
         return currentGrade;
     }
+
     public double getTargetGrade() {
         return targetGrade;
     }
+
     public double getExamWeighting() {
         return examWeighting;
     }

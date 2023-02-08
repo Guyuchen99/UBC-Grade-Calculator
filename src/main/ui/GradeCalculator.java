@@ -25,6 +25,7 @@ public class GradeCalculator {
     }
 
     // EFFECTS: processes user command and run specific methods
+    @SuppressWarnings("methodlength")
     private void runGradeCalculator() {
         int operation;
 
@@ -43,14 +44,14 @@ public class GradeCalculator {
 
             } else if (operation == 2) {
                 runSetTarget();
-                if (endProgram()){
+                if (endProgram()) {
                     System.out.println("\nThank you for using the UBC Grade Calculator! \nGoodbye!");
                     break;
                 }
 
             } else if (operation == 1) {
                 runCalculateGrade();
-                if (endProgram()){
+                if (endProgram()) {
                     System.out.println("\nThank you for using the UBC Grade Calculator! \nGoodbye!");
                     break;
                 }

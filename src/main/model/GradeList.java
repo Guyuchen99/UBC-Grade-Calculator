@@ -36,6 +36,7 @@ public class GradeList {
     }
 
     // EFFECTS: convert the grade average to a letter grade
+    @SuppressWarnings("methodlength")
     public String convertToLetterGrade() {
         int gradeAverage = (int) Math.round((calculateGradeAverage() * 100));
 
