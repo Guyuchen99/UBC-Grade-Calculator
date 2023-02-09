@@ -18,15 +18,17 @@ public class Grade {
         this.assignmentWeighting = weighting;
     }
 
-    // Getters
+    // EFFECTS: return the assignment name of this grade component
     public String getAssignmentName() {
         return assignmentName;
     }
 
+    // EFFECTS: return the assignment grade of this grade component
     public double getAssignmentGrade() {
         return assignmentGrade;
     }
 
+    // EFFECTS: return the assignment weighting of this grade component
     public double getAssignmentWeighting() {
         return assignmentWeighting;
     }

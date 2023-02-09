@@ -17,22 +17,28 @@ public class TargetGrade {
         this.examWeighting = weighting;
     }
 
-    // Getters
+    // EFFECTS: calculate the target grade
+    public int calculateTarget() {
+        double currentPercentage = currentGrade / 100;
+        double targetPercentage = targetGrade / 100;
+        double examPercentage = examWeighting / 100;
+
+        return (int)Math.round(((targetPercentage - (1 - examPercentage) * currentPercentage) / examPercentage) * 100);
+    }
+
+    // EFFECTS: return the value of current grade
     public double getCurrentGrade() {
         return currentGrade;
     }
 
+    // EFFECTS: return the value of target grade
     public double getTargetGrade() {
         return targetGrade;
     }
 
+    // EFFECTS: return the value of exam weighting
     public double getExamWeighting() {
         return examWeighting;
-    }
-
-    // EFFECTS: calculate the target grade
-    public double calculateTarget() {
-        return ((targetGrade - (1 - examWeighting) * currentGrade) / examWeighting);
     }
 
 }

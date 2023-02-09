@@ -114,7 +114,8 @@ public class GradeCalculator {
 
         System.out.println("Your Final Grade Would Be: "
                 + percent.format(myGradeList.calculateGradeAverage())
-                + " or " + myGradeList.convertToLetterGrade());
+                + " or "
+                + myGradeList.convertToLetterGrade(myGradeList.calculateGradeAverage()));
 
     }
 
@@ -129,18 +130,18 @@ public class GradeCalculator {
         System.out.println("\n---Setting Target---");
 
         System.out.print("Enter Your Current Grade: ");
-        currentGrade = scanner.nextDouble() / 100;
+        currentGrade = scanner.nextDouble();
         System.out.print("Enter Your Target Grade: ");
-        targetGrade = scanner.nextDouble() / 100;
+        targetGrade = scanner.nextDouble();
         System.out.print("Enter Your Final Exam Weighting: ");
-        weighting = scanner.nextDouble() / 100;
+        weighting = scanner.nextDouble();
 
         TargetGrade myTargetGrade = new TargetGrade(currentGrade, targetGrade, weighting);
 
         System.out.println("\nYou need to get "
-                + percent.format(myTargetGrade.calculateTarget())
+                + percent.format(((double)myTargetGrade.calculateTarget() / 100))
                 + " on your final exam in order to get "
-                + percent.format(myTargetGrade.getTargetGrade())
+                + percent.format((myTargetGrade.getTargetGrade() / 100))
                 + " in this course!");
     }
 
