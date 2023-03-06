@@ -29,16 +29,16 @@ public class GradeWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes string to file
-    private void saveToFile(String json) {
-        myWriter.print(json);
-    }
-
-    // MODIFIES: this
     // EFFECTS: writes JSON representation of grade to file
     public void write(GradeList myGradeList) {
         JSONObject json = myGradeList.toJson();
         saveToFile(json.toString(TAB));
+    }
+
+    // MODIFIES: this
+    // EFFECTS: writes string to file
+    private void saveToFile(String json) {
+        myWriter.print(json);
     }
 
     // MODIFIES: this

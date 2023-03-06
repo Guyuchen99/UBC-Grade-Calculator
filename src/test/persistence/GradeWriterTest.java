@@ -3,17 +3,20 @@ package persistence;
 import model.Grade;
 import model.GradeList;
 import org.json.JSONException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GradeWriterTest extends JsonTest {
 
+    private static final String JSON_DATA = "./data/grade_writer_test.json";
+    private GradeWriter gradeWriter;
+    private GradeReader gradeReader;
     private String courseName;
     private GradeList myGradeList;
     private Grade labGrade;
@@ -22,6 +25,8 @@ public class GradeWriterTest extends JsonTest {
 
     @BeforeEach
     public void setup() {
+        this.gradeWriter = new GradeWriter(JSON_DATA);
+        this.gradeReader = new GradeReader(JSON_DATA);
         this.courseName = "CPSC 210";
         this.myGradeList = new GradeList();
         this.labGrade = new Grade("Labs", 100, 25);
@@ -29,8 +34,9 @@ public class GradeWriterTest extends JsonTest {
         this.examGrade = new Grade("Exams", 90, 50);
     }
 
+
     @Test
-    public void writeInvalidFileTest() {
+    public void startWritingInvalidFileTest() {
         try {
             GradeWriter gradeWriter = new GradeWriter("./data/illegal\0FileName.json");
             gradeWriter.startWriting();
@@ -43,12 +49,10 @@ public class GradeWriterTest extends JsonTest {
     @Test
     void writeEmptyGradeListTest() {
         try {
-            GradeWriter gradeWriter = new GradeWriter("./data/writeEmptyWorkroomTest.json");
             gradeWriter.startWriting();
             gradeWriter.write(myGradeList);
             gradeWriter.stopWriting();
 
-            GradeReader gradeReader = new GradeReader("./data/writeEmptyWorkroomTest.json");
             myGradeList = gradeReader.startReading();
             fail("JSONException was expected");
         } catch (IOException e) {
@@ -65,14 +69,11 @@ public class GradeWriterTest extends JsonTest {
             myGradeList.addGrade(courseName, testGrade);
             myGradeList.addGrade(courseName, examGrade);
 
-            GradeWriter gradeWriter = new GradeWriter("./data/writeGeneralWorkroomTest.json");
             gradeWriter.startWriting();
             gradeWriter.write(myGradeList);
             gradeWriter.stopWriting();
 
-            GradeReader gradeReader = new GradeReader("./data/writeGeneralWorkroomTest.json");
             myGradeList = gradeReader.startReading();
-
             assertEquals(courseName, myGradeList.getCourseName());
             List<Grade> components = myGradeList.getComponents();
             assertEquals(3, components.size());
