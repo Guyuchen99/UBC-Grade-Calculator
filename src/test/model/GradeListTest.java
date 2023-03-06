@@ -4,6 +4,9 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 // Unit tests for GradeList class
@@ -36,6 +39,20 @@ public class GradeListTest {
         myGradeList.addGrade(courseName, myExamGrade);
         assertEquals(3, myGradeList.size());
         assertEquals(courseName, myGradeList.getCourseName());
+    }
+
+    @Test
+    public void getComponentsTest() {
+        myGradeList.addGrade(courseName, myLabGrade);
+        myGradeList.addGrade(courseName, myTestGrade);
+        List<Grade> myComponents = myGradeList.getComponents();
+        assertEquals(2, myComponents.size());
+        assertEquals("Labs", myComponents.get(0).getComponentName());
+        assertEquals(100, myComponents.get(0).getComponentGrade());
+        assertEquals(25, myComponents.get(0).getComponentWeighting());
+        assertEquals("Test", myComponents.get(1).getComponentName());
+        assertEquals(75, myComponents.get(1).getComponentGrade());
+        assertEquals(25, myComponents.get(1).getComponentWeighting());
     }
 
     @Test
@@ -99,13 +116,12 @@ public class GradeListTest {
         myGradeList.addGrade(courseName, myLabGrade);
         JSONObject myJson = myGradeList.toJson();
         assertEquals(myGradeList.getCourseName(), myJson.get("courseName"));
+    }
 
-
-
-
-        //assertEquals("[{\"componentGrade\":100,\"componentWeighting\":25,\"componentName\":\"Labs\"}]",
-          //    myJson.get("components"));
-        //assertEquals(myGradeList.calculateGradeAverage(), myJson.get("courseGrade"));
+    @Test
+    public void toJsonEmptyTest() {
+        JSONObject myJson = myGradeList.toJson();
+        assertEquals(0, myJson.length());
     }
 
 }
