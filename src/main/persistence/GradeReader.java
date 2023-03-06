@@ -21,7 +21,7 @@ public class GradeReader {
     private String courseName;
 
     // EFFECTS: constructs a reader to read from the given source file
-    public GradeReader (String dataSource) {
+    public GradeReader(String dataSource) {
         this.dataSource = dataSource;
     }
 

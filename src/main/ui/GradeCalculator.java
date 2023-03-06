@@ -118,6 +118,7 @@ public class GradeCalculator {
 
     // MODIFIES: this
     // EFFECTS: processes user input and gathering essential information to calculate grade average
+    @SuppressWarnings("methodlength")
     private void runCalculateGrade() {
         NumberFormat percent = NumberFormat.getPercentInstance();
         int operation;

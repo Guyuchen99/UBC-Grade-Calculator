@@ -94,7 +94,7 @@ public class GradeList implements Writable {
     public JSONObject toJson() {
         JSONObject gradeJson = new JSONObject();
 
-        if(courseName == null) {
+        if (courseName == null) {
             return gradeJson;
         }
 
