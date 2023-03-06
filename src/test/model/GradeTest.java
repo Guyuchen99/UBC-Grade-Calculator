@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,4 +21,13 @@ public class GradeTest {
         assertEquals(95, myGrade.getComponentGrade());
         assertEquals(100, myGrade.getComponentWeighting());
     }
+
+    @Test
+    public void toJsonTest() {
+        JSONObject myJson = myGrade.toJson();
+        assertEquals(myGrade.getComponentName(), myJson.get("componentName"));
+        assertEquals(myGrade.getComponentGrade(), myJson.get("componentGrade"));
+        assertEquals(myGrade.getComponentWeighting(), myJson.get("componentWeighting"));
+    }
+
 }

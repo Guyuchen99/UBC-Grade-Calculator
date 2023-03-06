@@ -45,4 +45,5 @@ public class Grade implements Writable {
         gradeJson.put("componentWeighting", componentWeighting);
         return gradeJson;
     }
+
 }
