@@ -1,12 +1,19 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Represents a list of grade components for a course
  */
 
-public class GradeList {
+public class GradeList implements Writable {
+    private String courseName;
     private ArrayList<Grade> gradeList;
     private double gradeAverage;
 
@@ -17,8 +24,19 @@ public class GradeList {
 
     // MODIFIES: this
     // EFFECTS: add a Grade to the GradeList
-    public void addGrade(Grade grade) {
+    public void addGrade(String courseName, Grade grade) {
+        this.courseName = courseName;
         gradeList.add(grade);
+    }
+
+    // EFFECTS: returns an unmodifiable list of thingies in this workroom
+    public List<Grade> getComponents() {
+        return Collections.unmodifiableList(gradeList);
+    }
+
+    // EFFECTS: add a Grade to the GradeList
+    public String getCourseName() {
+        return courseName;
     }
 
     // EFFECTS: calculate the percent grade average of every grade component in the ArrayList
@@ -27,8 +45,8 @@ public class GradeList {
         double totalGrade = 0;
 
         for (int x = 0; x < gradeList.toArray().length; x++) {
-            totalGrade += (gradeList.get(x).getAssignmentGrade()) * (gradeList.get(x).getAssignmentWeighting());
-            totalWeight += gradeList.get(x).getAssignmentWeighting();
+            totalGrade += (gradeList.get(x).getComponentGrade()) * (gradeList.get(x).getComponentWeighting());
+            totalWeight += gradeList.get(x).getComponentWeighting();
         }
 
         gradeAverage = (totalGrade / totalWeight) / 100;
@@ -71,4 +89,30 @@ public class GradeList {
         return gradeList.size();
     }
 
+    // EFFECTS: prints the gradeList to a json file
+    @Override
+    public JSONObject toJson() {
+        JSONObject gradeJson = new JSONObject();
+
+        if(courseName == null) {
+            return gradeJson;
+        }
+
+        gradeJson.put("courseName", courseName);
+        gradeJson.put("components", componentsToJson());
+        gradeJson.put("courseGrade", gradeAverage);
+
+        return gradeJson;
+    }
+
+    // EFFECTS: prints the components to a json file
+    private JSONArray componentsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Grade myGrade : gradeList) {
+            jsonArray.put(myGrade.toJson());
+        }
+
+        return jsonArray;
+    }
 }

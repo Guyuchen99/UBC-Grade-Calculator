@@ -17,5 +17,7 @@ receive the grade that you desire.
 ## User Stories 
 - As a user, I want to be able to add a grade on my *grade calculator*.
 - As a user, I want to be able to display the grade calculated on my *grade calculator*.
-- As a user, I want to be able to display the previous grade calculated on my *grade calculator*. 
+- As a user, I want to be able to convert the grade calculated into a letter grade on my *grade calculator*. 
 - As a user, I want to be able to set a realistic target on my *grade calculator*.
+- As a user, I want to be able to save the previous grade calculated (if I choose) on my *grade calculator*.
+- As a user, I want to be able to load the previous grade calculated from file (if I choose) on my *grade calculator*.

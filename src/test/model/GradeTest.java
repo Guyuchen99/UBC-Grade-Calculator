@@ -16,8 +16,8 @@ public class GradeTest {
 
     @Test
     public void constructorTest() {
-        assertEquals("Exams", myGrade.getAssignmentName());
-        assertEquals(95, myGrade.getAssignmentGrade());
-        assertEquals(100, myGrade.getAssignmentWeighting());
+        assertEquals("Exams", myGrade.getComponentName());
+        assertEquals(95, myGrade.getComponentGrade());
+        assertEquals(100, myGrade.getComponentWeighting());
     }
 }

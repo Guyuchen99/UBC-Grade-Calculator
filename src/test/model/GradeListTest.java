@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // Unit tests for GradeList class
 public class GradeListTest {
+    private String courseName;
     private GradeList myGradeList;
     private Grade myLabGrade;
     private Grade myTestGrade;
@@ -14,6 +15,7 @@ public class GradeListTest {
 
     @BeforeEach
     public void setup() {
+        this.courseName = "CPSC 210";
         this.myGradeList = new GradeList();
         this.myLabGrade = new Grade("Labs", 100, 25);
         this.myTestGrade = new Grade("Test", 75, 25);
@@ -27,19 +29,20 @@ public class GradeListTest {
 
     @Test
     public void addGradeTest() {
-        myGradeList.addGrade(myLabGrade);
+        myGradeList.addGrade(courseName, myLabGrade);
         assertEquals(1, myGradeList.size());
-        myGradeList.addGrade(myTestGrade);
-        myGradeList.addGrade(myExamGrade);
+        myGradeList.addGrade(courseName, myTestGrade);
+        myGradeList.addGrade(courseName, myExamGrade);
         assertEquals(3, myGradeList.size());
+        assertEquals(courseName, myGradeList.getCourseName());
     }
 
     @Test
     public void calculateGradeAverageTest() {
-        myGradeList.addGrade(myLabGrade);
+        myGradeList.addGrade(courseName, myLabGrade);
         assertEquals(1, myGradeList.calculateGradeAverage());
-        myGradeList.addGrade(myTestGrade);
-        myGradeList.addGrade(myExamGrade);
+        myGradeList.addGrade(courseName, myTestGrade);
+        myGradeList.addGrade(courseName, myExamGrade);
         assertEquals(0.8875, myGradeList.calculateGradeAverage());
     }
 
