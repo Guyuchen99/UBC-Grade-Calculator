@@ -73,8 +73,4 @@ public class GradeReader {
         myGradeList.addGrade(courseName,myGrade);
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
 }
