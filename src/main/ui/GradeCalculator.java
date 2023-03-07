@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class GradeCalculator {
 
-    private static final String JSON_DATA = "./data/grade_calculator.json";
+    private static final String JSON_DATA = "./data/gradeCalculator.json";
     private Scanner scanner;
     private GradeList myGradeList;
     private GradeWriter gradeWriter;

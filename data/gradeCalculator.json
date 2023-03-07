@@ -1,0 +1,9 @@
+{
+     "courseName": "CPSC 210",
+     "components": [{
+          "componentGrade": 30,
+          "componentWeighting": 80,
+          "componentName": "LABS"
+     }],
+     "courseGrade": 0.3
+}

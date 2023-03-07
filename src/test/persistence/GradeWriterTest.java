@@ -2,12 +2,10 @@ package persistence;
 
 import model.Grade;
 import model.GradeList;
+
 import org.json.JSONException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -15,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GradeWriterTest extends JsonTest {
 
-    private static final String JSON_DATA = "./data/grade_writer_test.json";
+    private static final String JSON_DATA = "./data/gradeWriterTest.json";
     private GradeWriter gradeWriter;
     private GradeReader gradeReader;
     private String courseName;
