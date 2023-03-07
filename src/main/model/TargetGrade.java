@@ -5,7 +5,6 @@ package model;
  */
 
 public class TargetGrade {
-
     private double currentGrade;
     private double targetGrade;
     private double examWeighting;

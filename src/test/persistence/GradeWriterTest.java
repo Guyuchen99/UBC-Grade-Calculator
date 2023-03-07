@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Unit tests for GradeWriter class
 public class GradeWriterTest extends JsonTest {
 
     private static final String JSON_DATA = "./data/gradeWriterTest.json";
@@ -82,4 +83,5 @@ public class GradeWriterTest extends JsonTest {
         checkGrade(examGrade.getComponentName(), examGrade.getComponentGrade(),
                 examGrade.getComponentWeighting(), components.get(2));
     }
+
 }

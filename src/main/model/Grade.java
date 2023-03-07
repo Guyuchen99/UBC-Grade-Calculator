@@ -8,7 +8,6 @@ import persistence.Writable;
  */
 
 public class Grade implements Writable {
-
     private String componentName;
     private double componentGrade;
     private double componentWeighting;

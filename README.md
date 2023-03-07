@@ -21,3 +21,8 @@ receive the grade that you desire.
 - As a user, I want to be able to set a realistic target on my *grade calculator*.
 - As a user, I want to be able to save the previous grade calculated (if I choose) on my *grade calculator*.
 - As a user, I want to be able to load the previous grade calculated from file (if I choose) on my *grade calculator*.
+
+## Credits
+The basic structure of data persistence is influenced by 
+[JsonSerializationDemo](https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo).
+

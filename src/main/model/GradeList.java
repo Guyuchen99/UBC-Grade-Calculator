@@ -34,7 +34,7 @@ public class GradeList implements Writable {
         return Collections.unmodifiableList(gradeList);
     }
 
-    // EFFECTS: add a Grade to the GradeList
+    // EFFECTS: returns the value of current course name
     public String getCourseName() {
         return courseName;
     }
@@ -84,7 +84,7 @@ public class GradeList implements Writable {
         }
     }
 
-    // EFFECTS: return the amount of grades currently in the gradeList
+    // EFFECTS: return the amount of grades currently inside the gradeList
     public int size() {
         return gradeList.size();
     }
@@ -105,7 +105,7 @@ public class GradeList implements Writable {
         return gradeJson;
     }
 
-    // EFFECTS: prints the components to a json file
+    // EFFECTS: prints the grade components to a json file
     private JSONArray componentsToJson() {
         JSONArray jsonArray = new JSONArray();
 

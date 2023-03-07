@@ -18,14 +18,14 @@ import java.util.Scanner;
  */
 
 public class GradeCalculator {
-
     private static final String JSON_DATA = "./data/gradeCalculator.json";
     private Scanner scanner;
     private GradeList myGradeList;
     private GradeWriter gradeWriter;
     private GradeReader gradeReader;
 
-    // EFFECTS: runs the grade calculator console application
+    // EFFECTS: runs the grade calculator console application;
+    // throws FileNotFoundException if destination file cannot be opened for writing
     public GradeCalculator() throws FileNotFoundException {
         scanner = new Scanner(System.in);
         myGradeList = new GradeList();
@@ -183,7 +183,8 @@ public class GradeCalculator {
                 + " in this course!");
     }
 
-    // EFFECTS: saves the current calculation to file
+    // MODIFIES: this
+    // EFFECTS: saves the current grade calculation to file
     private void saveCurrent() {
         try {
             gradeWriter.startWriting();
@@ -203,7 +204,7 @@ public class GradeCalculator {
     }
 
     // MODIFIES: this
-    // EFFECTS: load the previously saved calculation from file
+    // EFFECTS: load the previously saved grade calculation from file
     private void loadPreviouslySaved() {
         NumberFormat percent = NumberFormat.getPercentInstance();
         int componentNumber = 1;

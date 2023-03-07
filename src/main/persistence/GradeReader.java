@@ -16,7 +16,6 @@ import java.util.stream.Stream;
  */
 
 public class GradeReader {
-
     private String dataSource;
     private String courseName;
 
@@ -33,7 +32,8 @@ public class GradeReader {
         return parseGradeList(jsonObject);
     }
 
-    // EFFECTS: reads source file as string and returns it
+    // EFFECTS: reads source file as string and returns it;
+    // throws IOException if an error occurs reading data from file
     private String readFile(String dataSource) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
@@ -44,7 +44,7 @@ public class GradeReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses GradeList from JSON object and returns it
     private GradeList parseGradeList(JSONObject jsonObject) {
         courseName = jsonObject.getString("courseName");
         GradeList myGradeList = new GradeList();

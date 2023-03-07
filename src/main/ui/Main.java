@@ -3,7 +3,7 @@ package ui;
 import java.io.FileNotFoundException;
 
 /**
- * Used to run the Grade Calculator.
+ * Used to run the Grade Calculator
  */
 
 public class Main {

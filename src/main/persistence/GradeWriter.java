@@ -11,7 +11,6 @@ import org.json.JSONObject;
  */
 
 public class GradeWriter {
-
     private static final int TAB = 5;
     private PrintWriter myWriter;
     private String myFile;
@@ -46,4 +45,5 @@ public class GradeWriter {
     public void stopWriting() {
         myWriter.close();
     }
+
 }
