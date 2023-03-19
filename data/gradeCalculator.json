@@ -1,9 +1,16 @@
 {
-     "courseName": "1",
-     "components": [{
-          "componentGrade": 11,
-          "componentWeighting": 1,
-          "componentName": "1"
-     }],
-     "courseGrade": 0.11
+     "courseName": "CPSC 210",
+     "components": [
+          {
+               "componentGrade": 100,
+               "componentWeighting": 25,
+               "componentName": "LAB"
+          },
+          {
+               "componentGrade": 80,
+               "componentWeighting": 75,
+               "componentName": "EXAM"
+          }
+     ],
+     "courseGrade": 0.85
 }

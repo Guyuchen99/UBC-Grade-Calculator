@@ -27,6 +27,7 @@ public class GUI extends JFrame implements ActionListener {
     private static final ImageIcon SET_TARGET_ICON = new ImageIcon("image/SettingTarget.png");
     private static final ImageIcon TARGET_RESULT_ICON = new ImageIcon("image/TargetResult.png");
     private static final String JSON_DATA = "./data/gradeCalculator.json";
+    private static final String[] DONE_RESPONSE = {"Done"};
     private static final int WIDTH = 750;
     private static final int HEIGHT = 750;
 
@@ -139,7 +140,7 @@ public class GUI extends JFrame implements ActionListener {
 
     private void initializeCopyRightLabel() {
         copyRightLabel.setHorizontalAlignment(JLabel.CENTER);
-        copyRightLabel.setVerticalAlignment(JLabel.TOP);
+        copyRightLabel.setVerticalAlignment(JLabel.CENTER);
         copyRightLabel.setForeground(Color.WHITE);
         copyRightLabel.setFont(new Font("TimesRoman", Font.PLAIN, 15));
         copyRightLabel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -188,7 +189,6 @@ public class GUI extends JFrame implements ActionListener {
     private void setTarget() {
         NumberFormat percent = NumberFormat.getPercentInstance();
         String[] nextResponse = {"Calculate!!!"};
-        String[] doneResponse = {"Got It!!!"};
         double currentGrade;
         double targetGrade;
         double examWeight;
@@ -211,7 +211,7 @@ public class GUI extends JFrame implements ActionListener {
                         + percent.format((myTargetGrade.getTargetGrade() / 100)) + " in this course!",
                 "Your Result...",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION,
-                TARGET_RESULT_ICON, doneResponse, doneResponse[0]);
+                TARGET_RESULT_ICON, DONE_RESPONSE, DONE_RESPONSE[0]);
     }
 
     private void saveCalculation() {
@@ -228,23 +228,28 @@ public class GUI extends JFrame implements ActionListener {
     private void loadCalculation() {
         NumberFormat percent = NumberFormat.getPercentInstance();
         int componentNumber = 1;
+        WindowDisplaySaved myDisplaySavedWindow = new WindowDisplaySaved();
 
         try {
             myGradeList = gradeReader.startReading();
-
-            System.out.println("\n---Previous Saved Calculation---");
-            System.out.println("Course Name: " + myGradeList.getCourseName());
+            myDisplaySavedWindow.setCourseNameLabel(myGradeList.getCourseName());
 
             List<Grade> myComponents = myGradeList.getComponents();
             for (Grade grade : myComponents) {
-                System.out.println("\nComponent" + componentNumber + " Name: " + grade.getComponentName());
-                System.out.println("Component" + componentNumber + " Grade: " + grade.getComponentGrade());
-                System.out.println("Component" + componentNumber + " Weighting: " + grade.getComponentWeighting());
+                myDisplaySavedWindow.setNameLabel(componentNumber, grade.getComponentName());
+                myDisplaySavedWindow.setGradeLabel(componentNumber, grade.getComponentGrade());
+                myDisplaySavedWindow.setWeightLabel(componentNumber, grade.getComponentWeighting());
                 componentNumber++;
             }
 
-            System.out.println("\nFinal Course Grade: " + percent.format(myGradeList.calculateGradeAverage()));
+            myDisplaySavedWindow.setFinalGradeLabel(percent.format(myGradeList.calculateGradeAverage()));
 
+            JPanel myDisplaySavedPanel = myDisplaySavedWindow.getJPanel();
+
+            JOptionPane.showOptionDialog(null,
+                    myDisplaySavedPanel, "Previous Saved Calculation...",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.DEFAULT_OPTION,
+                    null, DONE_RESPONSE, DONE_RESPONSE[0]);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_DATA);
         } catch (JSONException e) {
