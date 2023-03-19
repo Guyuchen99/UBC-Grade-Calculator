@@ -29,16 +29,6 @@ public class GradeList implements Writable {
         gradeList.add(grade);
     }
 
-    // EFFECTS: returns an unmodifiable list of thingies in this workroom
-    public List<Grade> getComponents() {
-        return Collections.unmodifiableList(gradeList);
-    }
-
-    // EFFECTS: returns the value of current course name
-    public String getCourseName() {
-        return courseName;
-    }
-
     // EFFECTS: calculate the percent grade average of every grade component in the ArrayList
     public double calculateGradeAverage() {
         double totalWeight = 0;
@@ -84,11 +74,6 @@ public class GradeList implements Writable {
         }
     }
 
-    // EFFECTS: return the amount of grades currently inside the gradeList
-    public int size() {
-        return gradeList.size();
-    }
-
     // EFFECTS: prints the gradeList to a json file
     @Override
     public JSONObject toJson() {
@@ -115,4 +100,20 @@ public class GradeList implements Writable {
 
         return jsonArray;
     }
+
+    // EFFECTS: returns an unmodifiable list of thingies in this workroom
+    public List<Grade> getComponents() {
+        return Collections.unmodifiableList(gradeList);
+    }
+
+    // EFFECTS: returns the value of course name
+    public String getCourseName() {
+        return courseName;
+    }
+
+    // EFFECTS: return the amount of grades currently inside the gradeList
+    public int size() {
+        return gradeList.size();
+    }
+
 }

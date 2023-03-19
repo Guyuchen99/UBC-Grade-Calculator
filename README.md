@@ -22,7 +22,17 @@ receive the grade that you desire.
 - As a user, I want to be able to save the previous grade calculated (if I choose) on my *grade calculator*.
 - As a user, I want to be able to load the previous grade calculated from file (if I choose) on my *grade calculator*.
 
+## Instructions for Grader
+- You can add a grade from your desired course by clicking the "Calculate Grade" button on the main menu. 
+- You can see the calculated grade as a percentage from the input of your grade components. 
+- You can see the calculated grade as a letter grade from the input of your grade components. 
+- You can set a realistic target from your desired course by clicking the "Setting Target" button on the main menu.
+- You can locate my visual component on the main menu or on each of the popup screens. 
+- You can save the state of my application by clicking on the "Save Current Calculation" button after the process of 
+calculating your grade. 
+- You can reload the state of my application by clicking on the "Load Previously Saved Calculation" button 
+on the main menu. 
+
 ## Credits
 The basic structure of data persistence is influenced by 
 [JsonSerializationDemo](https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo).
-

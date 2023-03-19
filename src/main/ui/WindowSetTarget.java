@@ -3,16 +3,20 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
-public class WindowSetTarget {
-    JPanel myPanel;
-    JTextField currentGradeTextField;
-    JTextField targetGradeTextField;
-    JTextField examWeightTextField;
-    JLabel currentGradeLabel;
-    JLabel targetGradeLabel;
-    JLabel examWeightLabel;
+/**
+ * Represents a Set Target Popup Window
+ */
 
-    // EFFECTS: creates a new set-target window
+public class WindowSetTarget {
+    private JPanel myPanel;
+    private JTextField currentGradeTextField;
+    private JTextField targetGradeTextField;
+    private JTextField examWeightTextField;
+    private JLabel currentGradeLabel;
+    private JLabel targetGradeLabel;
+    private JLabel examWeightLabel;
+
+    // EFFECTS: creates a new set target window
     public WindowSetTarget() {
         initializeFields();
 
@@ -28,9 +32,8 @@ public class WindowSetTarget {
         myPanel.setPreferredSize(new Dimension(250,125));
     }
 
-    // EFFECTS: initializes set-target fields
+    // EFFECTS: initializes set target window fields
     private void initializeFields() {
-        //myFrame = new JFrame("New Meal");
         myPanel = new JPanel();
 
         currentGradeLabel = new JLabel("Enter Your Current Grade: ");
@@ -45,22 +48,24 @@ public class WindowSetTarget {
         examWeightTextField.setMaximumSize(new Dimension(500, 25));
     }
 
+    // EFFECTS: return the myPanel JPanel
     public JPanel getJPanel() {
         return myPanel;
     }
 
-    // EFFECTS: return parsed currentGradeTextField as a double
+    // EFFECTS: parses currentGradeTextField into a double and return it
     public double getCurrentGradeTextField() {
         return Double.parseDouble(currentGradeTextField.getText());
     }
 
-    // EFFECTS: return parsed targetGradeTextField as a double
+    // EFFECTS: parses targetGradeTextField into a double and return it
     public double getTargetGradeTextField() {
         return Double.parseDouble(targetGradeTextField.getText());
     }
 
-    // EFFECTS: return parsed examWeightTextField as a double
+    // EFFECTS: parses examWeightTextField into a double and return it
     public double getExamWeightTextField() {
         return Double.parseDouble(examWeightTextField.getText());
     }
+
 }

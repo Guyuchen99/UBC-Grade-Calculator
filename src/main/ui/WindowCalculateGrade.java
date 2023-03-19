@@ -3,16 +3,20 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
-public class WindowCalculateGrade {
-    JPanel myPanel;
-    JTextField componentNameTextField;
-    JTextField componentGradeTextField;
-    JTextField componentWeightTextField;
-    JLabel componentNameLabel;
-    JLabel componentGradeLabel;
-    JLabel componentWeightLabel;
+/**
+ * Represents a Calculate Grade Popup Window
+ */
 
-    // EFFECTS: creates a new calculate-grade window
+public class WindowCalculateGrade {
+    private JPanel myPanel;
+    private JTextField componentNameTextField;
+    private JTextField componentGradeTextField;
+    private JTextField componentWeightTextField;
+    private JLabel componentNameLabel;
+    private JLabel componentGradeLabel;
+    private JLabel componentWeightLabel;
+
+    // EFFECTS: creates a new calculate grade window
     public WindowCalculateGrade() {
         initializeFields();
 
@@ -28,9 +32,8 @@ public class WindowCalculateGrade {
         myPanel.setPreferredSize(new Dimension(250,125));
     }
 
-    // EFFECTS: initializes calculate-grade fields
+    // EFFECTS: initializes calculate grade window fields
     private void initializeFields() {
-        //myFrame = new JFrame("New Meal");
         myPanel = new JPanel();
 
         componentNameLabel = new JLabel("Enter Your Component Name: ");
@@ -45,24 +48,24 @@ public class WindowCalculateGrade {
         componentWeightTextField.setMaximumSize(new Dimension(500, 25));
     }
 
+    // EFFECTS: return the myPanel JPanel
     public JPanel getJPanel() {
         return myPanel;
     }
 
-    // EFFECTS: returns componentNameTextField
+    // EFFECTS: returns the componentNameTextField TextField
     public String getComponentNameTextField() {
         return componentNameTextField.getText();
     }
 
-    // EFFECTS: parses componentName text String and returns double
+    // EFFECTS: parses componentNameTextField into a double and return it
     public double getComponentGradeTextField() {
         return Double.parseDouble(componentGradeTextField.getText());
     }
 
-    // EFFECTS: parses componentWeight text String and returns double
+    // EFFECTS: parses componentWeightTextField into a double and return it
     public double getComponentWeightTextField() {
         return Double.parseDouble(componentWeightTextField.getText());
     }
 
 }
-

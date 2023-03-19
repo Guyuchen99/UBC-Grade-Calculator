@@ -20,21 +20,6 @@ public class Grade implements Writable {
         this.componentWeighting = weighting;
     }
 
-    // EFFECTS: return the assignment name of this grade component
-    public String getComponentName() {
-        return componentName;
-    }
-
-    // EFFECTS: return the assignment grade of this grade component
-    public double getComponentGrade() {
-        return componentGrade;
-    }
-
-    // EFFECTS: return the assignment weighting of this grade component
-    public double getComponentWeighting() {
-        return componentWeighting;
-    }
-
     // EFFECTS: prints all the grade components to a json file
     @Override
     public JSONObject toJson() {
@@ -43,6 +28,21 @@ public class Grade implements Writable {
         gradeJson.put("componentGrade", componentGrade);
         gradeJson.put("componentWeighting", componentWeighting);
         return gradeJson;
+    }
+
+    // EFFECTS: return the value of assignment name
+    public String getComponentName() {
+        return componentName;
+    }
+
+    // EFFECTS: return the value of assignment grade
+    public double getComponentGrade() {
+        return componentGrade;
+    }
+
+    // EFFECTS: return the value of assignment weighting
+    public double getComponentWeighting() {
+        return componentWeighting;
     }
 
 }
