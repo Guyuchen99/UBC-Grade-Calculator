@@ -34,7 +34,6 @@ public class GradeWriterTest extends JsonTest {
         this.examGrade = new Grade("Exams", 90, 50);
     }
 
-
     @Test
     public void startWritingInvalidFileTest() {
         try {
