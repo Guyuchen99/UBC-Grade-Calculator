@@ -1,5 +1,5 @@
 # UBC Grade Calculator
-![Photo of the UBC Grade Calculator](image/UBCGradeCalculator.jpeg)
+![Photo of the UBC Grade Calculator](image/UBCGradeCalculator.png)
 
 ## About the Project 
 Have you ever been worried about whether you'll actually pass a specific course toward the end of the semester? 
