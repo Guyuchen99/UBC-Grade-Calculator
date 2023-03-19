@@ -252,8 +252,6 @@ public class GUI extends JFrame implements ActionListener {
                     null, DONE_RESPONSE, DONE_RESPONSE[0]);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_DATA);
-        } catch (JSONException e) {
-            System.out.println("Failed to Load: Previous Saved Calculation was found null");
         }
     }
 
