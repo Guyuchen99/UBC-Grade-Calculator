@@ -33,6 +33,23 @@ receive the grade that you desire.
 - You can save the state of my application by clicking on the "Save Current Calculation" button after the process of
 calculating your grade.
 
+## Phase 4: Task 2 (Event Log Sample)
+```
+--- My Event Logs---
+Wed Apr 05 18:39:29 PDT 2023
+Added CPSC210 with a Lab grade of 80.0% that weights 25.0%
+
+Wed Apr 05 18:39:39 PDT 2023
+Added CPSC210 with a Exam grade of 100.0% that weights 75.0%
+
+Wed Apr 05 18:39:39 PDT 2023
+Grade Average Calculated!
+
+Wed Apr 05 18:39:41 PDT 2023
+Grade Calculation Saved!
+```
+
+
 ## Credits
 The basic structure of data persistence is influenced by 
 [JsonSerializationDemo](https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo).

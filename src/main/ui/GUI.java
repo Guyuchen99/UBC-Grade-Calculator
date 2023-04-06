@@ -286,7 +286,7 @@ public class GUI extends JFrame implements ActionListener {
     private void printEventLog() {
         System.out.println("\n--- My Event Logs---");
         for (Event next : EventLog.getInstance()) {
-            System.out.println(next.getDate());
+            System.out.println(next);
             System.out.println();
         }
     }
