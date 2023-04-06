@@ -53,3 +53,5 @@ Grade Calculation Saved!
 ## Credits
 The basic structure of data persistence is influenced by 
 [JsonSerializationDemo](https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo).
+The basic structure of event log is influenced by
+[JsonSerializationDemo](https://github.students.cs.ubc.ca/CPSC210/AlarmSystem).
