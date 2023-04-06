@@ -65,8 +65,8 @@ However, I believe there are still many possible refactoring ideas available to 
 is to refactor each component of the GUI class into its own little class, which would improve cohesion 
 of the program without introducing too much coupling. Another idea is to reduce the dependencies of the GUI 
 class (i.e., WindowCalculateGrade or WindowDisplaySaved or WindowSetTarget) by refactoring them and making 
-all the features self-contained. By implementing these in the future, I will be able to achieve high-cohesion 
-and low-coupling in my design.
+all the features self-contained. Therefore, by implementing these in the future, I will be able to achieve 
+high-cohesion and low-coupling in my program.
 
 ## Credits
 - The basic structure of data persistence is influenced by 
