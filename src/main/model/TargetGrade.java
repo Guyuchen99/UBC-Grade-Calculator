@@ -22,6 +22,10 @@ public class TargetGrade {
         double targetPercentage = targetGrade / 100;
         double examPercentage = examWeighting / 100;
 
+        EventLog.getInstance().logEvent(new Event("Added Current Grade of " + currentGrade
+                + "% with Target Grade of " + targetGrade
+                + "% with Exam Weighting of " + examWeighting + "%"));
+        EventLog.getInstance().logEvent(new Event("Grade Target Calculated!"));
         return (int)Math.round(((targetPercentage - (1 - examPercentage) * currentPercentage) / examPercentage) * 100);
     }
 

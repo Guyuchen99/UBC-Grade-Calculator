@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Grade;
 import model.GradeList;
 import model.TargetGrade;
@@ -166,6 +168,7 @@ public class GUI extends JFrame implements ActionListener {
         String componentName;
         double componentGrade;
         double componentWeight;
+        double calculatedResult;
         String[] nextResponse = {"Calculate!!!", "More Components"};
         String[] doneResponse = {"Got It!!!", "Save Current Calculation"};
         myGradeList = new GradeList();
@@ -190,9 +193,10 @@ public class GUI extends JFrame implements ActionListener {
 
         } while (firstOption == 1);
 
+        calculatedResult = myGradeList.calculateGradeAverage();
         secondOption = JOptionPane.showOptionDialog(null,
-                "Your Final Grade Would Be: " + percent.format(myGradeList.calculateGradeAverage())
-                        + " or " + myGradeList.convertToLetterGrade(myGradeList.calculateGradeAverage()),
+                "Your Final Grade Would Be: " + percent.format(calculatedResult)
+                        + " or " + myGradeList.convertToLetterGrade(calculatedResult),
                 "Your Result...",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 GRADE_RESULT_ICON, doneResponse, doneResponse[0]);
@@ -278,6 +282,15 @@ public class GUI extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: print the EventLog on Console
+    private void printEventLog() {
+        System.out.println("\n--- My Event Logs---");
+        for (Event next : EventLog.getInstance()) {
+            System.out.println(next.getDate());
+            System.out.println();
+        }
+    }
+
     // EFFECTS: processes button clicks and runs appropriate methods
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -288,6 +301,7 @@ public class GUI extends JFrame implements ActionListener {
         } else if (e.getSource() == loadPreviousButton) {
             loadCalculation();
         } else if (e.getSource() == exitProgramButton) {
+            printEventLog();
             System.exit(0);
         }
     }

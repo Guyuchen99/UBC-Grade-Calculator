@@ -27,6 +27,10 @@ public class GradeList implements Writable {
     public void addGrade(String courseName, Grade grade) {
         this.courseName = courseName;
         gradeList.add(grade);
+        EventLog.getInstance().logEvent(new Event("Added " + courseName
+                + " with a " + grade.getComponentName()
+                + " grade of " + grade.getComponentGrade()
+                + "% that weights " + grade.getComponentWeighting() + "%"));
     }
 
     // EFFECTS: calculate the percent grade average of every grade component in the ArrayList
@@ -40,6 +44,7 @@ public class GradeList implements Writable {
         }
 
         gradeAverage = (totalGrade / totalWeight) / 100;
+        EventLog.getInstance().logEvent(new Event("Grade Average Calculated!"));
         return gradeAverage;
     }
 
@@ -87,6 +92,7 @@ public class GradeList implements Writable {
         gradeJson.put("components", componentsToJson());
         gradeJson.put("courseGrade", gradeAverage);
 
+        EventLog.getInstance().logEvent(new Event("Grade Calculation Saved!"));
         return gradeJson;
     }
 
