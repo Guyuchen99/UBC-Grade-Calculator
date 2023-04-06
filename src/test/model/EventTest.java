@@ -13,33 +13,28 @@ public class EventTest {
     private Event event1;
     private Event event2;
     private Event event3;
-    private Date date1;
+    private Date date;
 
     //NOTE: these tests might fail if time at which line (2) below is executed
     //is different from time that line (1) is executed.  Lines (1) and (2) must
     //run in same millisecond for this test to make sense and pass.
 
     @BeforeEach
-    public void runBefore() {
+    public void setup() {
         event1 = new Event("Grade Average Calculated!");   // (1)
         event2 = new Event("Grade Average Calculated!");
         event3 = new Event("Grade Calculation Saved!");
-        date1 = Calendar.getInstance().getTime();   // (2)
+        date = Calendar.getInstance().getTime();   // (2)
     }
 
     @Test
-    public void testEvent() {
+    public void constructorTest() {
         assertEquals("Grade Average Calculated!", event1.getDescription());
-        assertTrue(date1.getTime() - event1.getDate().getTime() <= 10);
+        assertTrue(date.getTime() - event1.getDate().getTime() <= 10);
     }
 
     @Test
-    public void testToString() {
-        assertEquals(date1.toString() + "\n" + "Grade Average Calculated!", event1.toString());
-    }
-
-    @Test
-    public void testEquals() {
+    public void equalsTest() {
         assertFalse(event1.equals(null));
         assertFalse(event1.equals("Grade Calculation Saved!"));
     }
@@ -48,5 +43,10 @@ public class EventTest {
     void hashCodeTest() {
         assertTrue(event1.hashCode() - event2.hashCode() <= 10);
         assertFalse(event1.hashCode() - event3.hashCode() <= 10);
+    }
+
+    @Test
+    public void toStringTest() {
+        assertEquals(date.toString() + "\n" + "Grade Average Calculated!", event1.toString());
     }
 }

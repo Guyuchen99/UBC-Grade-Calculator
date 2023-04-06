@@ -48,10 +48,13 @@ Grade Average Calculated!
 Wed Apr 05 18:39:41 PDT 2023
 Grade Calculation Saved!
 ```
+## Phase 4: Task 3 (Design Reflection)
 
+#### UML Diagram
+![UML Diagram](UML_Design_Diagram.png)
 
 ## Credits
-The basic structure of data persistence is influenced by 
+- The basic structure of data persistence is influenced by 
 [JsonSerializationDemo](https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo).
-The basic structure of event log is influenced by
-[JsonSerializationDemo](https://github.students.cs.ubc.ca/CPSC210/AlarmSystem).
+- The basic structure of event log is influenced by
+[AlarmSystem](https://github.students.cs.ubc.ca/CPSC210/AlarmSystem).

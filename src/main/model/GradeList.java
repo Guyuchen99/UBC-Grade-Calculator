@@ -14,7 +14,7 @@ import java.util.List;
 
 public class GradeList implements Writable {
     private String courseName;
-    private ArrayList<Grade> gradeList;
+    private List<Grade> gradeList;
     private double gradeAverage;
 
     // EFFECTS: creates a new ArrayList in the constructor

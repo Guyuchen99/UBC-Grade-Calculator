@@ -11,23 +11,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // Unit tests for EventLog class
 public class EventLogTest {
-    private Event e1;
-    private Event e2;
-    private Event e3;
+    private Event event1;
+    private Event event2;
+    private Event event3;
 
     @BeforeEach
-    public void loadEvents() {
-        e1 = new Event("A1");
-        e2 = new Event("A2");
-        e3 = new Event("A3");
+    public void setup() {
+        event1 = new Event("Grade Average Calculated!");
+        event2 = new Event("Grade Calculation Saved!");
+        event3 = new Event("Grade Target Calculated!");
         EventLog el = EventLog.getInstance();
-        el.logEvent(e1);
-        el.logEvent(e2);
-        el.logEvent(e3);
+        el.logEvent(event1);
+        el.logEvent(event2);
+        el.logEvent(event3);
     }
 
     @Test
-    public void testLogEvent() {
+    public void logEventTest() {
         List<Event> l = new ArrayList<Event>();
 
         EventLog el = EventLog.getInstance();
@@ -35,13 +35,13 @@ public class EventLogTest {
             l.add(next);
         }
 
-        assertTrue(l.contains(e1));
-        assertTrue(l.contains(e2));
-        assertTrue(l.contains(e3));
+        assertTrue(l.contains(event1));
+        assertTrue(l.contains(event2));
+        assertTrue(l.contains(event3));
     }
 
     @Test
-    public void testClear() {
+    public void clearTest() {
         EventLog el = EventLog.getInstance();
         el.clear();
         Iterator<Event> itr = el.iterator();

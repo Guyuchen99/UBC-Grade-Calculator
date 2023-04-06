@@ -14,7 +14,7 @@ public class EventLog implements Iterable<Event> {
 
     // EFFECTS: prevent external construction using the Singleton Design Pattern
     private EventLog() {
-        events = new ArrayList<Event>();
+        events = new ArrayList<>();
     }
 
     // EFFECTS: create an instance of EventLog if it doesn't already exist and returns it
