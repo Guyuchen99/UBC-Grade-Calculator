@@ -33,7 +33,7 @@ receive the grade that you desire.
 - You can save the state of my application by clicking on the "Save Current Calculation" button after the process of
 calculating your grade.
 
-## Phase 4: Task 2 (Event Log Sample)
+## Event Log Sample
 ```
 --- My Event Logs---
 Wed Apr 05 18:39:29 PDT 2023
@@ -48,7 +48,7 @@ Grade Average Calculated!
 Wed Apr 05 18:39:41 PDT 2023
 Grade Calculation Saved!
 ```
-## Phase 4: Task 3 (Design Reflection)
+## Design Reflection
 
 #### UML Diagram
 ![UML Diagram](UML_Design_Diagram.png)
